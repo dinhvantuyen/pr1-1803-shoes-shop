@@ -1,7 +1,7 @@
 User.create!(name:  "Le Khac Sang",
              email: "canon.kma90@gmail.com",
-             password:              "hoacolau1",
-             password_confirmation: "hoacolau1",
+             password:              "123456",
+             password_confirmation: "123456",
              address: "Hanoi",
              phone: "0123456789",
              role: :admin)

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_action :login_user, only: :new
   def new
   end
 
@@ -23,4 +23,5 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to login_path
   end
+
 end

@@ -1,5 +1,5 @@
 module SessionsHelper
-  
+
   def log_in user
     session[:user_id] = user.id
   end
@@ -48,6 +48,10 @@ module SessionsHelper
   end
 
   def store_location
-    session[:forwarding_url] = request.original_url if request.get?  
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def login_user
+    redirect_to root_path if logged_in?
   end
 end

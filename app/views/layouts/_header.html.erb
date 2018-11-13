@@ -23,16 +23,21 @@
                 <% if !logged_in? %>
                 <li>
                   <%= link_to "Đăng nhập", login_path, class: "login" %>
-                  <%= link_to "Singup", "#" %>
+                  <%= link_to "Singup", signup_path %>
                 </li>
                 <% end %>
                 <% if logged_in? %>
-                <li>
-                  <%= link_to "Tôi", "#" %>
-                </li>
-                <li>
-                  <%= link_to "Đăng xuất", logout_path, method: :delete %>
-                </li>
+                  <li>
+                    <%= link_to "Tôi", current_user %>
+                  </li>
+                  <li>
+                    <%= link_to "Đăng xuất", logout_path, method: :delete %>
+                  </li>
+                  <%if current_user.admin?%>
+                    <li>
+                      <%= link_to "PageAdmin", admin_root_path %>
+                    </li>
+                  <% end %>
                 <% end %>
               </ul>
             </div>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:show, :create]
+  before_action :logged_in_user, except: [:new, :show, :create]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  before_action :login_user, only: :new
 
   def index
     @users = User.paginate page: params[:page]
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Chào mừng bạn đã đến Shoes Shop!"
-      redirect_to @user
+      redirect_to root_url
     else
       render :new
     end
