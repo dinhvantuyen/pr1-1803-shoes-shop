@@ -1,1 +1,49 @@
+<%= render "layouts/admin/sidebar" %>
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1 class="admin-title">
+      show product
+      <small>Advanced form element</small>
+    </h1>
+    <div class="bnt-new">
+      <%= link_to "create product", new_admin_product_path %>
+    </div>
 
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="box">
+        <table>
+          <thead>
+            <tr>
+              <th>ID product</th>
+              <th>name product</th>
+              <th>Category product</th>
+              <th>Price</th>
+              <th>Show</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+            <tr>
+            <td><%= product.id %></td>
+              <td><%= product.name %></td>
+              <td><%= Category.find(product.category_id).name %></td>
+              <td><%= product.price %></td>
+              <td><%= link_to "Show", admin_product_path(product) %></td>
+              <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
+              <td><%= link_to "Destroy", [:admin, product],
+                data: { confirm: "Are you sure?" }, method: :delete %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= will_paginate %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

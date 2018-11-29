@@ -1,0 +1,58 @@
+<%= form_for([:admin, @product]) do |f| %>
+   <%= render 'shared/admin/error_products', object: f.object %>
+  <div class="box-body pad">
+    <div class="form-group">
+      <div class="form-content">
+        <label class="col-md-2 control-label"> product name:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> category:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10">
+          <%= f.select :category_id, Category.pluck(:name, :id), {}, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> price product:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10">
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> image product:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10">
+          images product: <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Description product:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10">
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+      <%= f.submit "Create product", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

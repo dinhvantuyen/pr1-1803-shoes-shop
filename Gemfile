@@ -4,6 +4,7 @@ git_source :github do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem "carrierwave"
+gem "mini_magick"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "faker"
@@ -31,6 +32,10 @@ group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+end
+
+group :production do
+  gem 'fog', '1.42'
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

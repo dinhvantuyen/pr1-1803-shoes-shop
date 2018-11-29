@@ -11,7 +11,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
    <%= render "layouts/admin/header" %>
-   <div class="content-wrapper">
+   <div class="container" style="width: 1024px; float: right;">
      <% flash.each do |message_type, message| %>
      <div class="alert alert-<%= message_type %>"><%= message %></div>
      <% end %>

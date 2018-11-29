@@ -18,12 +18,12 @@ User.create!(name:  "Le Khac Sang",
                password_confirmation: password)
 end
 
-99.times do |n|
+10.times do |n|
   name  = Faker::Name.name
-  Category.create!(name: "name")
+  Category.create!(name: name)
 end
 
-99.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   Product.create!(name:  name,
                 description: "giaynew",

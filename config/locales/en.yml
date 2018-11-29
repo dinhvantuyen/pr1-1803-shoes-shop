@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      product: san pham
+    attributes:
+      product:
+        name: Truong ten
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank:  sản phẩm không được bỏ trống

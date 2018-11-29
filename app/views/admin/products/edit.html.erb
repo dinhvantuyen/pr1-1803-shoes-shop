@@ -1,0 +1,78 @@
+<% provide :title, "Chỉnh sửa thông tin" %>
+<%= render "layouts/admin/sidebar" %>
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      edit product
+      <small>Advanced form element</small>
+    </h1>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="row">
+            <div class="form-group">
+              <%= form_for [:admin, @product] do |f| %>
+               <%= render "shared/admin/error_products", object: f.object %>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"><%= f.label :name, "Name product" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10">
+                    <%= f.text_field :name, placeholder: "Nhập tên nhãn hiệu", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :price, "Price product" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10">
+                    <%= f.text_field :price, placeholder: "Nhập tên nhãn hiệu", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :description, "Description product" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10">
+                    <%= f.text_field :description, placeholder: "Nhập tên Mo ta", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :category_id, "Category product" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10">
+                    <%= f.text_field :category_id, placeholder: "Nhập id Category", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :status, "status product" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10">
+                    <%= f.text_field :status, placeholder: "Nhập trang thai", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-conten">
+                  <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

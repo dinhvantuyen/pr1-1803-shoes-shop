@@ -1,0 +1,42 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.form-group{
+  margin: 0;
+  border-bottom: 1px solid #efefef;
+  padding: 10px;
+  display: inline-block;
+  width: 100%;
+}
+.form-content{
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+.btn.btn-primary{
+  margin-left: 20px;
+}
+.admin-title{
+  display: inline-block;
+}
+.bnt-new {
+  float: right;
+}
+.bnt-new a{
+  background: rebeccapurple;
+  padding: 9px 17px;
+  color: #fff;
+  font-size: 15px;
+}
