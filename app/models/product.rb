@@ -9,4 +9,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
 
+  scope :search_name, -> (name) {where("name like ?", "#{name}%")}
+  scope :search_category, -> (category_id) {where(category_id: category_id)}
 end

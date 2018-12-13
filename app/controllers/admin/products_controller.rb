@@ -1,6 +1,10 @@
 class Admin::ProductsController < Admin::BaseController
   def index
-    @products = Product.paginate(page: params[:page]).per_page(30)
+    @products = Product.all
+    @products = @products.search_name params[:search_name] if params[:search_name].present?
+    @products = @products.search_category params[:category_id] if params[:category_id].present?
+    @categories_for_search = Category.pluck(:name, :id)
+    @products = @products.paginate page: params[:page], per_page: 5
   end
 
   def new
@@ -27,7 +31,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
     @product = Product.find_by id: params[:id]
-    if @product.update_attributes(product_params)
+    if @product.update_attributes product_params
       flash[:success] = "Profile updated success"
       redirect_to admin_products_path
     else
