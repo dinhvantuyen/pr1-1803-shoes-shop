@@ -44,3 +44,6 @@ tr:nth-child(even) {
   width: 1024px;
   float: right;
 }
+a.all-porduct{
+  float: right;
+}

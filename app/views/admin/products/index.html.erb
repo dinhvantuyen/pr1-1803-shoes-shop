@@ -10,6 +10,16 @@
   </section>
   <section class="content">
     <div class="row">
+      <div class="search-form col-md-12">
+        <div class="category-product">
+          <%= form_tag admin_products_path, method: :get do %>
+            <%= select_tag :category_id, options_for_select((@categories_for_search),params[:category_id]), include_blank: true %>
+            <%= text_field_tag "search_name", params[:search_name], placeholder: "Enter products name" %>
+            <%= submit_tag "Search!" %>
+           <%= link_to "all products", admin_products_path, class: "all-porduct" %>
+          <% end %>
+        </div>
+      </div>
       <div class="col-md-12">
        <div class="box">
         <table>
@@ -29,7 +39,7 @@
             <tr>
             <td><%= product.id %></td>
               <td><%= product.name %></td>
-              <td><%= Category.find(product.category_id).name %></td>
+              <td><%= product.category.name %></td>
               <td><%= product.price %></td>
               <td><%= link_to "Show", admin_product_path(product) %></td>
               <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
@@ -39,7 +49,7 @@
               <% end %>
             </tbody>
           </table>
-          <%= will_paginate %>
+          <%= will_paginate @products %>
         </div>
       </div>
     </div>
